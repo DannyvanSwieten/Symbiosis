@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		305569CF203B21DA00D05168 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 305569CE203B21DA00D05168 /* main.cpp */; };
+		305569DE203B244600D05168 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 305569DC203B244600D05168 /* entity.cpp */; };
+		305569E5203B2EEB00D05168 /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 305569E4203B2EEB00D05168 /* transform.cpp */; };
+		30672ABC203B336600287A7C /* rigid_body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30672ABA203B336600287A7C /* rigid_body.cpp */; };
+		FA42EB7E203D693700647C04 /* script_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA42EB7C203D693700647C04 /* script_context.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,18 @@
 /* Begin PBXFileReference section */
 		305569CB203B21DA00D05168 /* ecs3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ecs3; sourceTree = BUILT_PRODUCTS_DIR; };
 		305569CE203B21DA00D05168 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		305569D5203B223F00D05168 /* engine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = engine.hpp; sourceTree = "<group>"; };
+		305569D7203B234900D05168 /* system.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = system.hpp; sourceTree = "<group>"; };
+		305569D8203B238500D05168 /* delegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = delegate.hpp; sourceTree = "<group>"; };
+		305569DA203B23C900D05168 /* component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = component.hpp; sourceTree = "<group>"; };
+		305569DC203B244600D05168 /* entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
+		305569DD203B244600D05168 /* entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = entity.hpp; sourceTree = "<group>"; };
+		305569E3203B2DF700D05168 /* transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = transform.hpp; sourceTree = "<group>"; };
+		305569E4203B2EEB00D05168 /* transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
+		30672ABA203B336600287A7C /* rigid_body.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rigid_body.cpp; sourceTree = "<group>"; };
+		30672ABB203B336600287A7C /* rigid_body.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rigid_body.hpp; sourceTree = "<group>"; };
+		FA42EB7C203D693700647C04 /* script_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = script_context.cpp; sourceTree = "<group>"; };
+		FA42EB7D203D693700647C04 /* script_context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = script_context.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +73,29 @@
 		305569CD203B21DA00D05168 /* ecs3 */ = {
 			isa = PBXGroup;
 			children = (
+				305569E2203B2DE000D05168 /* components */,
 				305569CE203B21DA00D05168 /* main.cpp */,
+				305569D5203B223F00D05168 /* engine.hpp */,
+				305569D7203B234900D05168 /* system.hpp */,
+				305569D8203B238500D05168 /* delegate.hpp */,
+				305569DA203B23C900D05168 /* component.hpp */,
+				305569DC203B244600D05168 /* entity.cpp */,
+				305569DD203B244600D05168 /* entity.hpp */,
+				FA42EB7C203D693700647C04 /* script_context.cpp */,
+				FA42EB7D203D693700647C04 /* script_context.hpp */,
 			);
 			path = ecs3;
+			sourceTree = "<group>";
+		};
+		305569E2203B2DE000D05168 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				305569E4203B2EEB00D05168 /* transform.cpp */,
+				305569E3203B2DF700D05168 /* transform.hpp */,
+				30672ABA203B336600287A7C /* rigid_body.cpp */,
+				30672ABB203B336600287A7C /* rigid_body.hpp */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				305569CF203B21DA00D05168 /* main.cpp in Sources */,
+				30672ABC203B336600287A7C /* rigid_body.cpp in Sources */,
+				305569DE203B244600D05168 /* entity.cpp in Sources */,
+				305569E5203B2EEB00D05168 /* transform.cpp in Sources */,
+				FA42EB7E203D693700647C04 /* script_context.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +214,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-llua";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -223,8 +265,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-llua";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -233,6 +277,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-std=c++1z",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -241,6 +290,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-std=c++1z",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
