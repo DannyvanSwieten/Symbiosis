@@ -39,6 +39,7 @@ namespace symbiosis
         
     protected:
         
+        // These are used to identify which entities this system operates on.
         std::array<size_t, sizeof...(SystemTypes)> componentHashes;
     };
 }

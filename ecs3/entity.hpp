@@ -14,7 +14,7 @@
 
 namespace symbiosis
 {
-
+    
     class Entity {
     public:
         void addComponent(size_t c);

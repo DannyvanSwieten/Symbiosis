@@ -15,17 +15,21 @@
 namespace symbiosis
 {
 
+    // The engine class is the starting point. It takes a parameter pack of all supported components.
     template<typename... ComponentTypes>
     class Engine {
     public:
         
+        // A tuple of of vectors of all the component types this engine supports
         using GameState = std::tuple<std::vector<ComponentTypes>...>;
         
+        // Create a system of type SystemType and pass this to the ctor
         template<typename SystemType>
         void addSystem() {
             systems.emplace_back(std::make_unique<SystemType>(*this));
         }
         
+        // Creates a component of type ComponentType with ComponentArgs as possible arguments.
         template<typename ComponentType, typename... ComponentArgs>
         void createComponent(Entity& e, ComponentArgs... args) {
             auto& v = std::get<std::vector<ComponentType>>(state);
@@ -33,13 +37,10 @@ namespace symbiosis
             e.addComponent(ComponentType::hash_value);
         }
         
+        // Returns a reference to a vector with all instances of type ComponentType
         template<typename ComponentType>
         auto& getAll() {
             return std::get<std::vector<ComponentType>>(state);
-        }
-        
-        void update() {
-            state.update();
         }
         
     private:

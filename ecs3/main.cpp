@@ -1,5 +1,4 @@
 #include "engine.hpp"
-#include "editor_context.hpp"
 
 #include "transform.hpp"
 #include "rigid_body.hpp"
